@@ -1,4 +1,5 @@
 #include "theme1/listener_comp.hpp"
+#include "rclcpp_components/register_node_macro.hpp"
 #include <memory>
 
 using std::placeholders::_1;
@@ -28,6 +29,8 @@ void ListenerComp::topic_callback(const std_msgs::msg::String &msg) const
 
 } // namespace theme1
 
+RCLCPP_COMPONENTS_REGISTER_NODE(theme1::ListenerComp)
+
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
@@ -35,7 +38,3 @@ int main(int argc, char *argv[])
     rclcpp::shutdown();
     return 0;
 }
-
-#include "rclcpp_components/register_node_macro.hpp"
-
-RCLCPP_COMPONENTS_REGISTER_NODE(theme1::ListenerComp)
