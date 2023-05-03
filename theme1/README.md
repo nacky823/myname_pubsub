@@ -25,4 +25,4 @@
     count が 9 の場合、Mr.Ikebe という名前が出力される。
 
 
-© 2022 NAGAKI Yuki
+© 2023 nacky823
