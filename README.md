@@ -57,14 +57,31 @@
     ```
     ros2 param set /talker_comp pub_rate 1.0
     ```
-    
+
     > `Set parameter successful` と出力されれば問題なし
-    
+
 + コマンドの実行結果
     ```
+    [INFO] [1683125591.201715600] [talker_comp]: Initial period is 2.000000[s].
+    [INFO] [1683125593.202511400] [listener_comp]: Subscibed : 'nacky, count = 0'
+    [INFO] [1683125595.202095700] [listener_comp]: Subscibed : 'nacky, count = 1'
+    [INFO] [1683125597.202083900] [talker_comp]: Changed period to 0.500000[s].
+    [INFO] [1683125597.203017100] [listener_comp]: Subscibed : 'nacky, count = 2'
+    [INFO] [1683125597.702726800] [listener_comp]: Subscibed : 'nacky, count = 3'
+    [INFO] [1683125598.202928900] [listener_comp]: Subscibed : 'nacky, count = 4'
+    [INFO] [1683125598.703279100] [listener_comp]: Subscibed : 'nacky, count = 5'
+    [INFO] [1683125599.202863300] [listener_comp]: Subscibed : 'nacky, count = 6'
+    [INFO] [1683125599.703237000] [listener_comp]: Subscibed : 'nacky, count = 7'
+    [INFO] [1683125600.203118300] [listener_comp]: Subscibed : 'nacky, count = 8'
+    [INFO] [1683125600.702847400] [listener_comp]: Subscibed : 'Mr.Ikebe, count = 9'
+    [INFO] [1683125601.203122600] [listener_comp]: Subscibed : 'nacky, count = 0'
+    [INFO] [1683125601.702900100] [listener_comp]: Subscibed : 'nacky, count = 1'
+    [INFO] [1683125602.202714300] [talker_comp]: Changed period to 1.000000[s].
+    [INFO] [1683125602.202973600] [listener_comp]: Subscibed : 'nacky, count = 2'
+    [INFO] [1683125603.203705500] [listener_comp]: Subscibed : 'nacky, count = 3'
     ```
 
-    > 
+    > `pub_rate` を変更するたび、出力周期が変化する
     
 
 © 2023 nacky823
