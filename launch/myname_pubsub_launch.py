@@ -6,7 +6,7 @@ def generate_launch_description():
 
     talker_comp = Node(
         package="myname_pubsub",
-        executable="name_pubsub",
+        executable="talker",
         name="talker_launch",
         output="screen",
         emulate_tty=True,
@@ -17,13 +17,10 @@ def generate_launch_description():
 
     listener_comp = Node(
         package="myname_pubsub",
-        executable="name_pubsub",
+        executable="listener",
         name="listener_launch",
         output="screen",
         emulate_tty=True,
-        parameters=[
-            {"pub_rate": 1.5}
-        ]
     )
 
     ld.add_action(talker_comp)
