@@ -18,12 +18,12 @@ TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
 , ms_(0)
 {
     /* declare parameter */
-    std::chrono::duration<double, std::milli> initial_value(3000.0);
+    std::chrono::duration<double, std::milli> initial_value(2.0);
     this->declare_parameter("pub_rate", initial_value.count());
 
     publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
     timer_ = this->create_wall_timer(
-        3000ms, std::bind(&TalkerComp::timer_callback, this)
+        2000ms, std::bind(&TalkerComp::timer_callback, this)
     );
 }
 
