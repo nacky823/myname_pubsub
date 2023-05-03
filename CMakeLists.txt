@@ -37,6 +37,14 @@ target_link_libraries(name_pubsub
 )
 ament_target_dependencies(name_pubsub rclcpp)
 
+add_executable(talker src/talker_comp.cpp)
+target_link_libraries(talker talker_component)
+ament_target_dependencies(talker rclcpp rclcpp_components std_msgs)
+
+add_executable(listener src/listener_comp.cpp)
+target_link_libraries(listener listener_component)
+ament_target_dependencies(listener rclcpp rclcpp_components std_msgs)
+
 # Create component
 add_library(talker_component SHARED src/talker_comp.cpp)
 ament_target_dependencies(talker_component rclcpp rclcpp_components std_msgs)
@@ -60,6 +68,8 @@ install(TARGETS
 # install main
 install(TARGETS
   name_pubsub
+  talker
+  listener
   DESTINATION lib/${PROJECT_NAME}
 )
 

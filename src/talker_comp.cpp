@@ -79,7 +79,8 @@ RCLCPP_COMPONENTS_REGISTER_NODE(myname_pubsub::TalkerComp)
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<myname_pubsub::TalkerComp>());
+    rclcpp::NodeOptions options;
+    rclcpp::spin(std::make_shared<myname_pubsub::TalkerComp>(options));
     rclcpp::shutdown();
     return 0;
 }
