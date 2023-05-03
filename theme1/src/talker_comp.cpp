@@ -41,7 +41,7 @@ void TalkerComp::timer_callback()
 
 } // namespace theme1
 
-#include "rclcpp_components/resister_node_macro.hpp"
+#include "rclcpp_components/register_node_macro.hpp"
 
 RCLCPP_COMPONENTS_REGISTER_NODE(theme1::TalkerComp)
 

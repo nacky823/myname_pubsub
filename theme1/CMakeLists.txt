@@ -8,12 +8,14 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
 find_package(rclcpp_components REQUIRED)
+find_package(std_msgs REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+include_directories(include)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -29,11 +31,11 @@ endif()
 
 # Create executable
 add_executable(talker src/talker_comp.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
+ament_target_dependencies(talker rclcpp rclcpp_components std_msgs)
 
 # Create component
 add_library(talker_component SHARED src/talker_comp.cpp)
-ament_target_dependencies(talker_component rclcpp std_msgs)
+ament_target_dependencies(talker_component rclcpp rclcpp_components std_msgs)
 rclcpp_components_register_nodes(talker_component "theme1::TalkerComp")
 
 install(TARGETS
