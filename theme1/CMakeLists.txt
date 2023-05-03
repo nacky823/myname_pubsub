@@ -30,12 +30,10 @@ if(BUILD_TESTING)
 endif()
 
 # Create executable
-add_executable(talker src/talker_comp.cpp)
-ament_target_dependencies(talker rclcpp rclcpp_components std_msgs)
-
 add_executable(name_pubsub src/main.cpp)
 target_link_libraries(name_pubsub
   talker_component
+  listener_component
 )
 ament_target_dependencies(name_pubsub rclcpp)
 
@@ -49,11 +47,10 @@ ament_target_dependencies(listener_component rclcpp rclcpp_components std_msgs)
 rclcpp_components_register_nodes(listener_component "theme1::ListenerComp")
 
 install(TARGETS
-  talker
   talker_component
   listener_component
 
-# install library
+  # install library
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin

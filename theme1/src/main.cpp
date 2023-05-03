@@ -1,4 +1,5 @@
 #include "theme1/talker_comp.hpp"
+#include "theme1/listener_comp.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include <memory>
 
@@ -13,6 +14,8 @@ int main(int argc, char* argv[])
 
     auto talker = std::make_shared<theme1::TalkerComp>(options);
     exec.add_node(talker);
+    auto listener = std::make_shared<theme1::ListenerComp>(options);
+    exec.add_node(listener);
 
     exec.spin();
 
