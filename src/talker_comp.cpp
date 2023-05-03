@@ -1,4 +1,4 @@
-#include "theme1/talker_comp.hpp"
+#include "myname_pubsub/talker_comp.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 #include <chrono>
 #include <functional>
@@ -7,7 +7,7 @@
 
 using namespace std::chrono_literals;
 
-namespace theme1
+namespace myname_pubsub
 {
 
 TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
@@ -30,7 +30,7 @@ TalkerComp::TalkerComp()
     );
 }
 
-void theme1::TalkerComp::timer_callback()
+void myname_pubsub::TalkerComp::timer_callback()
 {
     auto message = std_msgs::msg::String(); // declare message
 
@@ -51,14 +51,14 @@ void theme1::TalkerComp::timer_callback()
     publisher_->publish(message); // publish
 }
 
-} // namespace theme1
+} // namespace myname_pubsub
 
-RCLCPP_COMPONENTS_REGISTER_NODE(theme1::TalkerComp)
+RCLCPP_COMPONENTS_REGISTER_NODE(myname_pubsub::TalkerComp)
 
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<theme1::TalkerComp>());
+    rclcpp::spin(std::make_shared<myname_pubsub::TalkerComp>());
     rclcpp::shutdown();
     return 0;
 }
