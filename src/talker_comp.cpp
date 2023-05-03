@@ -25,6 +25,8 @@ TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
     timer_ = this->create_wall_timer(
         2000ms, std::bind(&TalkerComp::timer_callback, this)
     );
+
+    RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", initial_value.count());
 }
 
 void myname_pubsub::TalkerComp::timer_callback()
@@ -60,7 +62,7 @@ void myname_pubsub::TalkerComp::timer_callback()
     }
     pre_mil_second = mil_second;
 
-    RCLCPP_INFO(this->get_logger(), "Now period is %lf[s].", second);
+    //RCLCPP_INFO(this->get_logger(), "Now period is %lf[s].", second);
 
     /* set parameter */
     rclcpp::Parameter sec_param("pub_rate", second);

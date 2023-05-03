@@ -24,7 +24,7 @@
 
 ### 課題１ 名前を 0.5 秒ごとに publish & subscribee する
 
-+ 以下のように、ターミナルにコマンドを入力する
++ 以下のコマンドを実行
     ```
     ros2 run myname_pubsub name_pubsub
     ```
@@ -45,6 +45,26 @@
 
     > count が 0 ~ 8 の場合、nacky という名前が出力され、
     count が 9 の場合、Mr.Ikebe という名前が出力される。
+
+### 課題２ patameter を変更して、出力周期を変える
+
++ 以下のコマンドを実行
+    ```
+    ros2 run myname_pubsub name_pubsub
+    ```
+
++ 新しいターミナルで、以下のコマンドを実行
+    ```
+    ros2 param set /talker_comp pub_rate 1.0
+    ```
+    
+    > `Set parameter successful` と出力されれば問題なし
+    
++ コマンドの実行結果
+    ```
+    ```
+
+    > 
     
 
 © 2023 nacky823
