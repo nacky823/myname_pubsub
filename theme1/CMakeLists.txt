@@ -33,6 +33,12 @@ endif()
 add_executable(talker src/talker_comp.cpp)
 ament_target_dependencies(talker rclcpp rclcpp_components std_msgs)
 
+add_executable(name_pubsub src/main.cpp)
+target_link_libraries(name_pubsub
+  talker_component
+)
+ament_target_dependencies(name_pubsub rclcpp)
+
 # Create component
 add_library(talker_component SHARED src/talker_comp.cpp)
 ament_target_dependencies(talker_component rclcpp rclcpp_components std_msgs)
@@ -47,6 +53,12 @@ install(TARGETS
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
   DESTINATION share/${PROJECT_NAME}
+)
+
+# install main
+install(TARGETS
+  name_pubsub
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()
