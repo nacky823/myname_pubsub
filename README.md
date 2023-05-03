@@ -53,7 +53,7 @@
     ros2 run myname_pubsub name_pubsub
     ```
 
-+ 新しいターミナルで、以下のコマンドを実行
++ 別の新しいターミナルで、以下のコマンドを実行
     ```
     ros2 param set /talker_comp pub_rate 1.0
     ```
@@ -79,6 +79,42 @@
     [INFO] [1683125602.202714300] [talker_comp]: Changed period to 1.000000[s].
     [INFO] [1683125602.202973600] [listener_comp]: Subscibed : 'nacky, count = 2'
     [INFO] [1683125603.203705500] [listener_comp]: Subscibed : 'nacky, count = 3'
+    ```
+
+    > `pub_rate` を変更するたび、出力周期が変化する
+
+### 課題３ python の launch ファイルで立ち上げる
+
++ 以下のコマンドを実行
+    ```
+    ros2 launch myname_pubsub myname_pubsub_launch.py
+    ```
+
++ 別の新しいターミナルで、以下のコマンドを実行
+    ```
+    ros2 param set /talker_launch pub_rate 0.5
+    ```
+
+    > `Set parameter successful` と出力されれば問題なし
+
++ コマンドの実行結果
+    ```
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    [INFO] [talker-1]: process started with pid [11532]
+    [INFO] [listener-2]: process started with pid [11534]
+    [talker-1] [INFO] [1683148382.162479400] [talker_launch]: Initial period is 2.000000[s].
+    [listener-2] [INFO] [1683148384.163015400] [listener_launch]: Subscibed : 'nacky, count = 0'
+    [listener-2] [INFO] [1683148386.163932500] [listener_launch]: Subscibed : 'nacky, count = 1'
+    [listener-2] [INFO] [1683148388.162914400] [listener_launch]: Subscibed : 'nacky, count = 2'
+    [listener-2] [INFO] [1683148390.163056800] [listener_launch]: Subscibed : 'nacky, count = 3'
+    [talker-1] [INFO] [1683148392.162621300] [talker_launch]: Changed period to 0.500000[s].
+    [listener-2] [INFO] [1683148392.162983800] [listener_launch]: Subscibed : 'nacky, count = 4'
+    [listener-2] [INFO] [1683148392.664134700] [listener_launch]: Subscibed : 'nacky, count = 5'
+    [listener-2] [INFO] [1683148393.163397700] [listener_launch]: Subscibed : 'nacky, count = 6'
+    [listener-2] [INFO] [1683148393.663409800] [listener_launch]: Subscibed : 'nacky, count = 7'
+    [listener-2] [INFO] [1683148394.163168200] [listener_launch]: Subscibed : 'nacky, count = 8'
+    [listener-2] [INFO] [1683148394.663101900] [listener_launch]: Subscibed : 'Mr.Ikebe, count = 9'
+    [listener-2] [INFO] [1683148395.163944300] [listener_launch]: Subscibed : 'nacky, count = 0'
     ```
 
     > `pub_rate` を変更するたび、出力周期が変化する
