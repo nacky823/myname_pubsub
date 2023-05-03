@@ -7,8 +7,6 @@ using std::placeholders::_1;
 namespace myname_pubsub
 {
 
-ListenerComp::ListenerComp() : Node("listener_comp") {}
-
 ListenerComp::ListenerComp(const rclcpp::NodeOptions &options)
 : Node("listener_comp", options)
 {

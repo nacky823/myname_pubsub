@@ -10,8 +10,6 @@ using namespace std::chrono_literals;
 namespace myname_pubsub
 {
 
-TalkerComp::TalkerComp() : Node("talker_comp") {}
-
 TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
 : Node("talker_comp", options)
 , count_(0)

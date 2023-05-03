@@ -10,7 +10,6 @@ namespace myname_pubsub
 class ListenerComp : public rclcpp::Node
 {
 public:
-    ListenerComp();
     explicit ListenerComp(const rclcpp::NodeOptions &options);
 
 private:
