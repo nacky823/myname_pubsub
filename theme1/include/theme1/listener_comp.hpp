@@ -10,6 +10,7 @@ namespace theme1
 class ListenerComp : public rclcpp::Node
 {
 public:
+    explicit ListenerComp(count rclcpp::NodeOptions &options);
     ListenerComp();
 
 private:
