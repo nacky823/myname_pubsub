@@ -18,7 +18,7 @@ private:
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
 
-    void timer_callback()
+    void timer_callback();
 };
     
 } // namespace theme1
