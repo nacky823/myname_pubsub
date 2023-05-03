@@ -7,15 +7,10 @@ using std::placeholders::_1;
 namespace myname_pubsub
 {
 
+ListenerComp::ListenerComp() : Node("listener_comp") {}
+
 ListenerComp::ListenerComp(const rclcpp::NodeOptions &options)
 : Node("listener_comp", options)
-{
-    subscription_ = this->create_subscription<std_msgs::msg::String>(
-        "name_topic", 10, std::bind(&ListenerComp::topic_callback, this, _1)
-    );
-}
-
-ListenerComp::ListenerComp() : Node("listener_comp")
 {
     subscription_ = this->create_subscription<std_msgs::msg::String>(
         "name_topic", 10, std::bind(&ListenerComp::topic_callback, this, _1)

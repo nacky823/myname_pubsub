@@ -10,8 +10,8 @@ namespace myname_pubsub
 class ListenerComp : public rclcpp::Node
 {
 public:
-    explicit ListenerComp(const rclcpp::NodeOptions &options);
     ListenerComp();
+    explicit ListenerComp(const rclcpp::NodeOptions &options);
 
 private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
