@@ -29,7 +29,8 @@ RCLCPP_COMPONENTS_REGISTER_NODE(myname_pubsub::ListenerComp)
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<myname_pubsub::ListenerComp>());
+    rclcpp::NodeOptions options;
+    rclcpp::spin(std::make_shared<myname_pubsub::ListenerComp>(options));
     rclcpp::shutdown();
     return 0;
 }
