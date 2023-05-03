@@ -6,7 +6,7 @@ def generate_launch_description():
         Node(
             package="myname_pubsub",
             executable="name_pubsub",
-            name="myname_pubsub",
+            name="myname_pubsub_launch",
             output="screen",
             emulate_tty=True,
             parameters=[
