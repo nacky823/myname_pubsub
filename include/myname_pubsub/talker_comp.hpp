@@ -10,8 +10,8 @@ namespace myname_pubsub
 class TalkerComp : public rclcpp::Node
 {
 public:
-    explicit TalkerComp(const rclcpp::NodeOptions & options);
     TalkerComp();
+    explicit TalkerComp(const rclcpp::NodeOptions & options);
 
 private:
     size_t count_;
