@@ -7,6 +7,10 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(rclcpp_components REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -22,5 +26,21 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+# Create executable
+add_executable(talker src/talker_comp.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
+
+# Create component
+add_library(talker_component SHARED src/talker_comp.cpp)
+ament_target_dependencies(talker_component rclcpp std_msgs)
+rclcpp_components_register_nodes(talker_component "theme1::TalkerComp")
+
+install(TARGETS
+  talker
+  talker_component
+  DESTINATION lib/${PROJECT_NAME}
+  DESTINATION share/${PROJECT_NAME}
+)
 
 ament_package()
