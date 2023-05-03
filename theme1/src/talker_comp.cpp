@@ -45,7 +45,7 @@ void theme1::TalkerComp::timer_callback()
     }
 
     /* publish message */
-    RCLCPP_INFO(this->get_logger(), "Publishing : '%s'", message.data.c_str());
+    //RCLCPP_INFO(this->get_logger(), "Publishing : '%s'", message.data.c_str());
 
     publisher_->publish(message); // publish
 }
