@@ -1,5 +1,5 @@
-#include "theme1/talker_comp.hpp"
-#include "theme1/listener_comp.hpp"
+#include "myname_pubsub/talker_comp.hpp"
+#include "myname_pubsub/listener_comp.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include <memory>
 
@@ -12,9 +12,9 @@ int main(int argc, char* argv[])
     rclcpp::executors::SingleThreadedExecutor exec;
     rclcpp::NodeOptions options;
 
-    auto talker = std::make_shared<theme1::TalkerComp>(options);
+    auto talker = std::make_shared<myname_pubsub::TalkerComp>(options);
     exec.add_node(talker);
-    auto listener = std::make_shared<theme1::ListenerComp>(options);
+    auto listener = std::make_shared<myname_pubsub::ListenerComp>(options);
     exec.add_node(listener);
 
     exec.spin();
