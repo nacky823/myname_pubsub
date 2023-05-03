@@ -2,7 +2,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include <memory>
 
-int main(int argc, char argv[])
+int main(int argc, char* argv[])
 {
     setvbuf(stdout, NULL, _IONBF, BUFSIZ);
 
@@ -11,7 +11,7 @@ int main(int argc, char argv[])
     rclcpp::executors::SingleThreadedExecutor exec;
     rclcpp::NodeOptions options;
 
-    auto talker = std::make_shared<theme::TalkerComp>(options);
+    auto talker = std::make_shared<theme1::TalkerComp>(options);
     exec.add_node(talker);
 
     exec.spin();
