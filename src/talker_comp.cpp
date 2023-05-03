@@ -15,18 +15,24 @@ TalkerComp::TalkerComp() : Node("talker_comp") {}
 TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
 : Node("talker_comp", options)
 , count_(0)
+, ms_(0)
 {
+    /* declare parameter */
+    std::chrono::duration<double, std::milli> initial_value(3000.0);
+    this->declare_parameter("pub_rate", initial_value.count());
+
     publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
     timer_ = this->create_wall_timer(
-        500ms, std::bind(&TalkerComp::timer_callback, this)
+        3000ms, std::bind(&TalkerComp::timer_callback, this)
     );
 }
 
 void myname_pubsub::TalkerComp::timer_callback()
 {
-    auto message = std_msgs::msg::String(); // declare message
+    /* declare message */
+    auto message = std_msgs::msg::String();
 
-    /* messabe data */
+    /* messabe process */
     if(count_ != 9)
     {
         message.data = "nacky, count = " + std::to_string(count_++);
@@ -37,10 +43,31 @@ void myname_pubsub::TalkerComp::timer_callback()
         count_ = 0;
     }
 
-    /* publish message */
-    //RCLCPP_INFO(this->get_logger(), "Publishing : '%s'", message.data.c_str());
+    /* get parameter */
+    auto second = this->get_parameter("pub_rate").as_double();
+    std::chrono::milliseconds mil_second(static_cast<int>(second * 1000));
 
-    publisher_->publish(message); // publish
+    static std::chrono::milliseconds pre_mil_second = mil_second;
+
+    /* change period process */
+    if(pre_mil_second != mil_second)
+    {
+        RCLCPP_INFO(this->get_logger(), "Changed period to %lf[s].", second);
+
+        ms_ = mil_second;
+
+        timer_ = this->create_wall_timer(ms_, std::bind(&TalkerComp::timer_callback, this));
+    }
+    pre_mil_second = mil_second;
+
+    RCLCPP_INFO(this->get_logger(), "Now period is %lf[s].", second);
+
+    /* set parameter */
+    rclcpp::Parameter sec_param("pub_rate", second);
+    std::vector<rclcpp::Parameter> sec_parameters{sec_param};
+    this->set_parameters(sec_parameters);
+
+    publisher_->publish(message);
 }
 
 } // namespace myname_pubsub
