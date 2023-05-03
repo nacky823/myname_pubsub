@@ -4,7 +4,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-namespace theme1
+namespace myname_pubsub
 {
 
 class ListenerComp : public rclcpp::Node
@@ -20,6 +20,6 @@ private:
 
 };
 
-} // namespace theme1
+} // namespace myname_pubsub
 
 #endif // LISTENER_COMP_HPP_
