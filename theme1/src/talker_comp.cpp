@@ -9,16 +9,16 @@ using namespace std::chrono_literals;
 namespace theme1
 {
 
-TalkerComp::TalkerComp() : Node("talker_comp")
+theme1::TalkerComp::TalkerComp() : Node("talker_comp")
                          , count_(0)
 {
     publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
     timer_ = this->create_wall_timer(
-        500ms, std::bind(&NamePublisher::timer_callback, this)
+        500ms, std::bind(&TalkerComp::timer_callback, this)
     );
 }
 
-void TalkerComp::timer_callback()
+void theme1::TalkerComp::timer_callback()
 {
     auto message = std_msgs::msg::String(); // declare message
 
@@ -48,7 +48,7 @@ RCLCPP_COMPONENTS_REGISTER_NODE(theme1::TalkerComp)
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<TalkerComp>());
+    rclcpp::spin(std::make_shared<theme1::TalkerComp>());
     rclcpp::shutdown();
     return 0;
 }
