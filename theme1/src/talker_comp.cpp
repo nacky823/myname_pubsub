@@ -9,8 +9,19 @@ using namespace std::chrono_literals;
 namespace theme1
 {
 
-theme1::TalkerComp::TalkerComp() : Node("talker_comp")
-                         , count_(0)
+TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
+: Node("talker_comp", options)
+, count_(0)
+{
+    publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
+    timer_ = this->create_wall_timer(
+        500ms, std::bind(&TalkerComp::timer_callback, this)
+    );
+}
+
+TalkerComp::TalkerComp()
+: Node("talker_comp")
+, count_(0)
 {
     publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
     timer_ = this->create_wall_timer(

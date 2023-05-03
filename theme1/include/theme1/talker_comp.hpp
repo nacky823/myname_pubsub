@@ -10,6 +10,7 @@ namespace theme1
 class TalkerComp : public rclcpp::Node
 {
 public:
+    explicit TalkerComp(const rclcpp::NodeOptions & options);
     TalkerComp();
 
 private:
