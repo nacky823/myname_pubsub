@@ -4,7 +4,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-namespace theme1
+namespace myname_pubsub
 {
 
 class TalkerComp : public rclcpp::Node
@@ -22,6 +22,6 @@ private:
     void timer_callback();
 };
     
-} // namespace theme1
+} // namespace myname_pubsub
 
 #endif // TALKER_COMP_HPP_
