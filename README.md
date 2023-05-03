@@ -26,7 +26,7 @@
 
 + 以下のように、ターミナルにコマンドを入力する
     ```
-    ros2 run theme1 name_pubsub
+    ros2 run myname_pubsub name_pubsub
     ```
 
 + コマンドの実行結果
