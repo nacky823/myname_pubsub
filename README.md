@@ -15,7 +15,7 @@
     cd ~/ros2_ws/src/
     ```
     ```
-    git clone https://github.com/nacky823/ros2_humble_practice.git
+    git clone https://github.com/nacky823/myname_pubsub.git
     ```
 
     > クローン終了後、ビルド＆ソースを行う。
