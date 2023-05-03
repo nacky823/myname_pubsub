@@ -44,9 +44,14 @@ add_library(talker_component SHARED src/talker_comp.cpp)
 ament_target_dependencies(talker_component rclcpp rclcpp_components std_msgs)
 rclcpp_components_register_nodes(talker_component "theme1::TalkerComp")
 
+add_library(listener_component SHARED src/listener_comp.cpp)
+ament_target_dependencies(listener_component rclcpp rclcpp_components std_msgs)
+rclcpp_components_register_nodes(listener_component "theme1::ListenerComp")
+
 install(TARGETS
   talker
   talker_component
+  listener_component
 
 # install library
   ARCHIVE DESTINATION lib
