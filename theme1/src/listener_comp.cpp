@@ -6,7 +6,7 @@ using std::placeholders::_1;
 namespace theme1
 {
 
-ListenerComp::ListenerComp(count rclcpp::NodeOptions &options)
+ListenerComp::ListenerComp(const rclcpp::NodeOptions &options)
 : Node("listener_comp", options)
 {
     subscription_ = this->create_subscription<std_msgs::msg::String>(
