@@ -41,7 +41,6 @@ rclcpp_components_register_nodes(talker_component "theme1::TalkerComp")
 install(TARGETS
   talker
   talker_component
-  DESTINATION lib/${PROJECT_NAME}
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -52,10 +52,6 @@ void theme1::TalkerComp::timer_callback()
 
 } // namespace theme1
 
-#include "rclcpp_components/register_node_macro.hpp"
-
-RCLCPP_COMPONENTS_REGISTER_NODE(theme1::TalkerComp)
-
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
@@ -63,3 +59,7 @@ int main(int argc, char *argv[])
     rclcpp::shutdown();
     return 0;
 }
+
+#include "rclcpp_components/register_node_macro.hpp"
+
+RCLCPP_COMPONENTS_REGISTER_NODE(theme1::TalkerComp)
