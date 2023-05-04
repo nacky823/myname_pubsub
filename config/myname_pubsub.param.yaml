@@ -1,0 +1,4 @@
+/talker_launch:
+  ros__parameters:
+    pub_name: 'talker_launch'
+    pub_rate: 1.5
