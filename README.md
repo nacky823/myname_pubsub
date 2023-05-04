@@ -118,6 +118,35 @@
     ```
 
     > `pub_rate` を変更するたび、出力周期が変化する
+
+### 課題４ yaml ファイルからパラメータを受け取り、launch.py を起動
+
++ ( 任意 ) config ディレクトリの `params_myname.param.yaml` の `pub_rate` を任意の秒数に書き換える
+
+    ```
+    /talker_launch:
+      ros__parameters:
+        pub_name: 'talker_launch'
+        pub_rate: 1.7
+    ```
+
+    > Default では、1.7[s] に設定してあるため、任意の秒数に設定
+
++ 以下のコマンドを実行
+    ```
+    ros2 launch myname_pubsub myname_pubsub_launch.py
+    ```
+
++ コマンドの実行結果
+    ```
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    [INFO] [talker-1]: process started with pid [5631]
+    [INFO] [listener-2]: process started with pid [5633]
+    [talker-1] [INFO] [1683204944.210765100] [talker_launch]: Initial period is 1.700000[s].
+    [listener-2] [INFO] [1683204945.912278500] [listener_launch]: Subscibed : 'nacky, count = 0'
+    [listener-2] [INFO] [1683204947.612209500] [listener_launch]: Subscibed : 'nacky, count = 1'
+    [listener-2] [INFO] [1683204949.311279500] [listener_launch]: Subscibed : 'nacky, count = 2'
+    ```
     
 
 © 2023 nacky823
