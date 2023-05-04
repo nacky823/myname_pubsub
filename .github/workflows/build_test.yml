@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up ROS2 environment
-        uses: ros/tooling@main
+        uses: ros/tooling@master
         with:
           ros_distro: humble
 
