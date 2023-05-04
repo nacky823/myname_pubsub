@@ -1,0 +1,15 @@
+name: build
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    container: ryuichiueda/ubuntu22.04-ros2:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build check
+        run: |
+          rsync -av ./ /root/ros2_ws/src/myname_pubsub/
+          cd /root/ros2_ws
+          rosdep update
+          rosdep install -i --from-path src --rosdistro humble -y
+          bash -xv ./src/myname_pubsub/test/build_test.bash /root
