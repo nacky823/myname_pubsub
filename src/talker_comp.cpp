@@ -29,7 +29,7 @@ TalkerComp::TalkerComp(const rclcpp::NodeOptions & options)
         ms_, std::bind(&TalkerComp::timer_callback, this)
     );
 
-    RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", initial_value.count());
+    RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", second);
 }
 
 void myname_pubsub::TalkerComp::timer_callback()
