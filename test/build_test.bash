@@ -13,6 +13,8 @@ ng () {
 
 res=0
 
+sudo apt-get install ros-humble-ament-cmake
+
 cd $dir/ros2_ws
 pwd
 ls -A
