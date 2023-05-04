@@ -1,15 +1,26 @@
 name: build
+
 on: push
+
 jobs:
-  test:
-    runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: build check
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up ROS2 environment
+        uses: ros/tooling@main
+        with:
+          ros_distro: humble
+
+      - name: Build ROS2 package
         run: |
-          rsync -av ./ /root/ros2_ws/src/myname_pubsub/
-          cd /root/ros2_ws
-          rosdep update
-          rosdep install -i --from-path src --rosdistro humble -y
-          bash -xv ./src/myname_pubsub/test/build_test.bash /root
+          pwd
+          ls -A
+          cd myname_pubsub
+          colcon build
+
+      - name: Check build result
+        run: |
+          colcon test --return-code-on-test-failure
