@@ -1,26 +1,16 @@
-name: build
-
+name: test
 on: push
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-22.04
+    container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Set up ROS2 environment
-        uses: ros/tooling@master
-        with:
-          ros_distro: humble
-
-      - name: Build ROS2 package
+      - uses: actions/checkout@v2
+      - name: build
         run: |
-          pwd
-          ls -A
-          cd myname_pubsub
-          colcon build
-
-      - name: Check build result
-        run: |
-          colcon test --return-code-on-test-failure
+          rsync -av ./ /root/ros2_ws/src/myname_pubsub/
+          cd /root/ros2_ws
+          rosdep update
+          rosdep install -i --from-path src --rosdistro humble -y 
+          sudo apt-get install ros-humble-ament-cmake
+          bash -xv ./src/myname_pubsub/test/build_test.bash /root
