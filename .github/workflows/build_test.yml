@@ -10,7 +10,7 @@ jobs:
         run: |
           rsync -av ./ /root/ros2_ws/src/myname_pubsub/
           cd /root/ros2_ws
+          sudo apt-get install ros-humble-ament-cmake -y
           rosdep update
           rosdep install -i --from-path src --rosdistro humble -y 
-          sudo apt-get install ros-humble-ament-cmake
           bash -xv ./src/myname_pubsub/test/build_test.bash /root
