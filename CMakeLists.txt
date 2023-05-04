@@ -29,6 +29,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+set(CMAKE_PREFIX_PATH "/opt/ros/humble")
+
 # Create executable
 add_executable(name_pubsub src/main.cpp)
 target_link_libraries(name_pubsub
