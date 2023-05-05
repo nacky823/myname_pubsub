@@ -31,31 +31,7 @@ endif()
 
 # Create executable
 add_executable(name_pubsub src/main.cpp)
-target_link_libraries(name_pubsub
-  talker_component
-  listener_component
-)
-ament_target_dependencies(name_pubsub rclcpp)
-
-# Create component
-add_library(talker_component SHARED src/talker_comp.cpp)
-ament_target_dependencies(talker_component rclcpp rclcpp_components std_msgs)
-rclcpp_components_register_nodes(talker_component "myname_pubsub::TalkerComp")
-
-add_library(listener_component SHARED src/listener_comp.cpp)
-ament_target_dependencies(listener_component rclcpp rclcpp_components std_msgs)
-rclcpp_components_register_nodes(listener_component "myname_pubsub::ListenerComp")
-
-install(TARGETS
-  talker_component
-  listener_component
-
-  # install library
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin
-  DESTINATION share/${PROJECT_NAME}
-)
+ament_target_dependencies(name_pubsub rclcpp std_msgs)
 
 # install main
 install(TARGETS
