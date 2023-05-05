@@ -134,6 +134,12 @@
 
     > Default で pub_rate は、1.7[s] に設定してあるため、任意の秒数に設定
 
++ 以下のコマンドを実行
+
+    ```
+    ros2 launch myname_pubsub myname_pubsub_launch.py
+    ```
+
 + 別の新しいターミナルで、以下のコマンドを実行
     ```
     ros2 param set /myname_pubsub pub_rate 0.5
@@ -142,12 +148,6 @@
     ros2 param set /myname_pubsub pub_name hoge
     ```
     > `Set parameter successful` と出力されれば問題なし
-
-+ 以下のコマンドを実行
-
-    ```
-    ros2 launch myname_pubsub myname_pubsub_launch.py
-    ```
 
 + コマンドの実行結果
     ```
