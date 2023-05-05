@@ -11,9 +11,18 @@
 
 ## Input / Output
 
-### Input
+### Input and Output
 
+| **Name (Topic)** | **Type** | **Description** |
+| --- | --- | --- |
+| `/name_topic` | `std_msgs::msg::String` | 標準出力する指定した単語 |
 
+### Parameter
+
+| **Name (Parameter)** | **Type** | **Description** |
+| --- | --- | --- |
+| `pub_name` | `std::strig` | 標準出力する任意の単語 |
+| `pub_rate` | `double` | 標準出力する周期 [s] |
 
 ## ディレクトリ構成
 
