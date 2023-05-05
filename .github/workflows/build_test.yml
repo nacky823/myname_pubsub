@@ -1,16 +1,33 @@
-name: test
+name: colcon build
 on: push
+
 jobs:
-  test:
-    runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest
+  colcon-build:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: build
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      
+      - name: Set up ROS environment
+        uses: ros-tooling/setup-ros2@v1
+        with:
+          ros_distro: humble
+      
+      - name: Install dependencies
         run: |
-          rsync -av ./ /root/ros2_ws/src/myname_pubsub/
-          cd /root/ros2_ws
-          sudo apt-get install ros-humble-ament-cmake -y
-          rosdep update
-          rosdep install -i --from-path src --rosdistro humble -y 
-          bash -xv ./src/myname_pubsub/test/build_test.bash /root
+          sudo apt update && sudo apt install -y \
+          python3-colcon-common-extensions \
+          python3-rosdep \
+          python3-vcstool \
+          wget
+      
+      - name: Install dependencies for myname_pubsub packages
+        run: |
+          cd humble_ws && \
+          rosdep update && \
+          rosdep install --from-paths src --ignore-src -r -y
+      
+      - name: Build packages
+        run: |
+          cd humble_ws && \
+          colcon build --packages-select myname_pubsub
