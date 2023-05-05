@@ -46,6 +46,24 @@ void myname_pubsub::Myname::timer_callback()
     /* declare message */
     auto message = std_msgs::msg::String();
 
+    /* get parameter pub_rate */
+    auto second = this->get_parameter("pub_rate").as_double();
+    std::chrono::milliseconds mil_second(static_cast<int>(second * 1000));
+    static std::chrono::milliseconds pre_mil_second = mil_second;
+
+    /* get parameter pub_name */
+    std::string name = this->get_parameter("pub_name").as_string();
+    static std::string pre_name = name;
+
+    /* change name process */
+    if(pre_name != name)
+    {
+        RCLCPP_INFO(this->get_logger(), "Change name to %s.", name.c_str());
+
+        name_ = name;
+    }
+    pre_name = name;
+
     /* messabe process */
     if(count_ != 9)
     {
@@ -56,12 +74,6 @@ void myname_pubsub::Myname::timer_callback()
         message.data = "Mr.Ikebe, count = " + std::to_string(count_);
         count_ = 0;
     }
-
-    /* get parameter */
-    auto second = this->get_parameter("pub_rate").as_double();
-    std::chrono::milliseconds mil_second(static_cast<int>(second * 1000));
-
-    static std::chrono::milliseconds pre_mil_second = mil_second;
 
     /* change period process */
     if(pre_mil_second != mil_second)
