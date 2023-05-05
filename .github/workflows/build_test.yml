@@ -21,6 +21,6 @@ jobs:
           cp -r ./* ../ros2_ws/src
           cd ../ros2_ws
           rosdep update
-          rosdep install -r -y --from-paths --ignore-src ./
+          rosdep install --from-path src --rosdistro humble -y
           source /opt/ros/humble/setup.bash
           colcon  build --symlink-install
