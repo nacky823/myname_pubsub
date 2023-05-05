@@ -126,11 +126,22 @@
     ```
     /myname_pubsub:
       ros__parameters:
-        pub_name: 'myname_pubsub'
+        pub_name: 'packy'
         pub_rate: 1.7
     ```
 
-    > Default では、1.7[s] に設定してあるため、任意の秒数に設定
+    > Default で pub_name は、packy に設定してあるため、任意の名前に設定
+
+    > Default で pub_rate は、1.7[s] に設定してあるため、任意の秒数に設定
+
++ 別の新しいターミナルで、以下のコマンドを実行
+    ```
+    ros2 param set /myname_pubsub pub_rate 0.5
+    ```
+    ```
+    ros2 param set /myname_pubsub pub_name hoge
+    ```
+    > `Set parameter successful` と出力されれば問題なし
 
 + 以下のコマンドを実行
 
@@ -141,19 +152,22 @@
 + コマンドの実行結果
     ```
     [INFO] [launch]: Default logging verbosity is set to INFO
-    [INFO] [name_pubsub_exe-1]: process started with pid [16943]
-    [name_pubsub_exe-1] [INFO] [1683283350.529082900] [myname_pubsub]: Initial period is 1.700000[s].
-    [name_pubsub_exe-1] [INFO] [1683283352.229555500] [myname_pubsub]: Subscibed : 'nacky, count = 0'
-    [name_pubsub_exe-1] [INFO] [1683283353.929582200] [myname_pubsub]: Subscibed : 'nacky, count = 1'
-    [name_pubsub_exe-1] [INFO] [1683283355.629608700] [myname_pubsub]: Subscibed : 'nacky, count = 2'
-    [name_pubsub_exe-1] [INFO] [1683283357.329556800] [myname_pubsub]: Subscibed : 'nacky, count = 3'
-    [name_pubsub_exe-1] [INFO] [1683283359.030000200] [myname_pubsub]: Subscibed : 'nacky, count = 4'
-    [name_pubsub_exe-1] [INFO] [1683283360.729286800] [myname_pubsub]: Changed period to 0.500000[s].
-    [name_pubsub_exe-1] [INFO] [1683283360.729491100] [myname_pubsub]: Subscibed : 'nacky, count = 5'
-    [name_pubsub_exe-1] [INFO] [1683283361.229874900] [myname_pubsub]: Subscibed : 'nacky, count = 6'
-    [name_pubsub_exe-1] [INFO] [1683283361.729778900] [myname_pubsub]: Subscibed : 'nacky, count = 7'
-    [name_pubsub_exe-1] [INFO] [1683283362.229754000] [myname_pubsub]: Subscibed : 'nacky, count = 8'
-    [name_pubsub_exe-1] [INFO] [1683283362.729974200] [myname_pubsub]: Subscibed : 'Mr.Ikebe, count = 9'
+    [INFO] [name_pubsub_exe-1]: process started with pid [25115]
+    [name_pubsub_exe-1] [INFO] [1683289114.874790200] [myname_pubsub]: Initial name is packy.
+    [name_pubsub_exe-1] [INFO] [1683289114.875062900] [myname_pubsub]: Initial period is 1.700000[s].
+    [name_pubsub_exe-1] [INFO] [1683289116.575399100] [myname_pubsub]: Subscibed : 'packy, count = 0'
+    [name_pubsub_exe-1] [INFO] [1683289118.275463400] [myname_pubsub]: Subscibed : 'packy, count = 1'
+    [name_pubsub_exe-1] [INFO] [1683289119.975149900] [myname_pubsub]: Change name to hoge.
+    [name_pubsub_exe-1] [INFO] [1683289119.975651500] [myname_pubsub]: Subscibed : 'hoge, count = 2'
+    [name_pubsub_exe-1] [INFO] [1683289121.675469100] [myname_pubsub]: Subscibed : 'hoge, count = 3'
+    [name_pubsub_exe-1] [INFO] [1683289123.375373700] [myname_pubsub]: Subscibed : 'hoge, count = 4'
+    [name_pubsub_exe-1] [INFO] [1683289125.075079200] [myname_pubsub]: Changed period to 1.000000[s].
+    [name_pubsub_exe-1] [INFO] [1683289125.075652900] [myname_pubsub]: Subscibed : 'hoge, count = 5'
+    [name_pubsub_exe-1] [INFO] [1683289126.075585900] [myname_pubsub]: Subscibed : 'hoge, count = 6'
+    [name_pubsub_exe-1] [INFO] [1683289127.075839900] [myname_pubsub]: Subscibed : 'hoge, count = 7'
+    [name_pubsub_exe-1] [INFO] [1683289128.076095400] [myname_pubsub]: Subscibed : 'hoge, count = 8'
+    [name_pubsub_exe-1] [INFO] [1683289129.075822200] [myname_pubsub]: Subscibed : 'Mr.Ikebe, count = 9'
+    [name_pubsub_exe-1] [INFO] [1683289130.075787600] [myname_pubsub]: Subscibed : 'hoge, count = 0'
     ```
     
 
