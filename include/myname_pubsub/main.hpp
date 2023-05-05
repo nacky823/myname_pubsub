@@ -7,28 +7,19 @@
 namespace myname_pubsub
 {
 
-class TalkerComp : public rclcpp::Node
+class Myname : public rclcpp::Node
 {
 public:
-    explicit TalkerComp(const rclcpp::NodeOptions & options);
+    explicit Myname(const rclcpp::NodeOptions & options);
 
 private:
     size_t count_;
     std::chrono::milliseconds ms_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
-
-    void timer_callback();
-};
-
-class ListenerComp : public rclcpp::Node
-{
-public:
-    explicit ListenerComp(const rclcpp::NodeOptions &options);
-
-private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
 
+    void timer_callback();
     void topic_callback(const std_msgs::msg::String &msg) const;
 
 };

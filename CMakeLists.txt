@@ -30,12 +30,12 @@ if(BUILD_TESTING)
 endif()
 
 # Create executable
-add_executable(name_pubsub src/main.cpp)
-ament_target_dependencies(name_pubsub rclcpp std_msgs)
+add_executable(name_pubsub_exe src/main.cpp)
+ament_target_dependencies(name_pubsub_exe rclcpp std_msgs)
 
 # install main
 install(TARGETS
-  name_pubsub
+  name_pubsub_exe
   DESTINATION lib/${PROJECT_NAME}
 )
 
