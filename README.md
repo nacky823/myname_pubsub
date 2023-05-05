@@ -55,7 +55,7 @@
 
 + 別の新しいターミナルで、以下のコマンドを実行
     ```
-    ros2 param set /talker_comp pub_rate 1.0
+    ros2 param set /myname_pubsub pub_rate 1.0
     ```
 
     > `Set parameter successful` と出力されれば問題なし
@@ -92,7 +92,7 @@
 
 + 別の新しいターミナルで、以下のコマンドを実行
     ```
-    ros2 param set /talker_launch pub_rate 0.5
+    ros2 param set /myname_pubsub pub_rate 0.5
     ```
 
     > `Set parameter successful` と出力されれば問題なし
