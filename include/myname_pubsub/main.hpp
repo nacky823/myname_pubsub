@@ -14,6 +14,7 @@ public:
 
 private:
     size_t count_;
+    std::string name_;
     std::chrono::milliseconds ms_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;

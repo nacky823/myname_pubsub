@@ -16,10 +16,14 @@ Myname::Myname(const rclcpp::NodeOptions & options)
 , ms_(0)
 {
     /* declare parameter */
+    this->declare_parameter("pub_name", "hajime");
     std::chrono::duration<double, std::milli> initial_value(2.0);
     this->declare_parameter("pub_rate", initial_value.count());
 
-    /* get parameter */
+    /* get parameter pub_name */
+    name_ = this->get_parameter("pub_name").as_string();
+
+    /* get parameter pub_rate */
     auto second = this->get_parameter("pub_rate").as_double();
     std::chrono::milliseconds mil_second(static_cast<int>(second * 1000));
     ms_ = mil_second;
@@ -29,6 +33,7 @@ Myname::Myname(const rclcpp::NodeOptions & options)
         ms_, std::bind(&Myname::timer_callback, this)
     );
 
+    RCLCPP_INFO(this->get_logger(), "Initial name is %s.", name_.c_str());
     RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", second);
 
     subscription_ = this->create_subscription<std_msgs::msg::String>(
@@ -44,7 +49,7 @@ void myname_pubsub::Myname::timer_callback()
     /* messabe process */
     if(count_ != 9)
     {
-        message.data = "nacky, count = " + std::to_string(count_++);
+        message.data = name_ + ", count = " + std::to_string(count_++);
     }
     else
     {
