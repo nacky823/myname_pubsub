@@ -1,4 +1,4 @@
-name: build_test
+name: build
 on: push
 
 jobs:
@@ -10,16 +10,13 @@ jobs:
         rosdistro:
           - humble
     steps:
-      - name: Checkout the code
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Apt update
-        run: |
-          sudo apt update -y
 
       - name: Build Test
         run: |
-          mkdir ../ros2_ws/src -p
+          sudo apt update -y
+          mkdir -p ../ros2_ws/src
           cp -r ./* ../ros2_ws/src
           cd ../ros2_ws
           rosdep update
