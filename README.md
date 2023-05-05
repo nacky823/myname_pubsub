@@ -9,6 +9,33 @@
 + OS : Ubuntu 22.04.1 LTS
 + Software : ROS 2 Humble
 
+## Input / Output
+
+### Input
+
+
+
+## ディレクトリ構成
+
+```
+.
+├── CMakeLists.txt
+├── LICENCE
+├── README.md
+├── config
+│   └── params_myname.param.yaml
+├── include
+│   └── myname_pubsub
+│       └── main.hpp
+├── launch
+│   └── myname_pubsub_launch.py
+├── package.xml
+└── src
+    └── main.cpp
+
+5 directories, 8 files
+```
+
 ## インストール
 
 ※ ROS 2 のインストール方法については記述しません。
