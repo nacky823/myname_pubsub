@@ -1,5 +1,7 @@
 # 自律移動チーム ROS2 課題
 
+[![build](https://github.com/nacky823/myname_pubsub/actions/workflows/build_test.yml/badge.svg)](https://github.com/nacky823/myname_pubsub/actions/workflows/build_test.yml)
+
 ## 動作確認済みの環境
 
 + OS : Ubuntu 22.04.1 LTS
