@@ -1,33 +1,29 @@
-name: colcon build
+name: build_test
 on: push
 
 jobs:
   colcon-build:
     runs-on: ubuntu-latest
+    container: osrf/ros:humble-desktop
+    strategy:
+      matrix:
+        rosdistro:
+          - humble
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
-      
-      - name: Set up ROS environment
-        uses: ros-tooling/setup-ros@v1.2.0
-        with:
-          ros_distro: humble
-      
-      - name: Install dependencies
+        uses: actions/checkout@v3
+
+      - name: Apt update
         run: |
-          sudo apt update && sudo apt install -y \
-          python3-colcon-common-extensions \
-          python3-rosdep \
-          python3-vcstool \
-          wget
-      
-      - name: Install dependencies for myname_pubsub packages
+          sudo apt update -y
+
+      - name: Build Test
         run: |
-          cd humble_ws && \
-          rosdep update && \
-          rosdep install --from-paths src --ignore-src -r -y
-      
-      - name: Build packages
-        run: |
-          cd humble_ws && \
-          colcon build --packages-select myname_pubsub
+          mkdir ../ros2_ws/src -p
+          cp -r ./* ../ros2_ws/src
+          cd ../ros2_ws
+          rosdep update
+          rosdep install -r -y --from-paths --ignore-src ./
+          source /opt/ros/humble/setup.bash
+          colcon  build --symlink-install
+        shell: bash
