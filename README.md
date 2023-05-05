@@ -1,19 +1,19 @@
-# ROS2 Humble myname_pubsub
+# ROS 2 Humble myname_pubsub
 
 [![build](https://github.com/nacky823/myname_pubsub/actions/workflows/build_test.yml/badge.svg)](https://github.com/nacky823/myname_pubsub/actions/workflows/build_test.yml)
 
-任意の単語を、任意の周期で publish & subscribe を行う ROS2 Humble のパッケージです。
+任意の単語を、任意の周期で publish & subscribe を行う ROS 2 Humble のパッケージです。
 
 ## 動作確認済みの環境
 
 + OS : Ubuntu 22.04.1 LTS
-+ Software : ROS2 Humble
++ Software : ROS 2 Humble
 
 ## インストール
 
-※ ROS2 のインストール方法については記述しません。
+※ ROS 2 のインストール方法については記述しません。
 
-+ 適切な ROS2 ワークスペース内でクローン
++ 適切な ROS 2 ワークスペース内でクローン
 
     ```
     git clone https://github.com/nacky823/myname_pubsub.git
@@ -34,9 +34,8 @@
             pub_rate: 1.7
         ```
 
-        > packy の部分を、任意の単語に設定可能
-
-        > 1.7 の部分を、任意の周期に設定可能
+        > + packy の部分を、任意の単語に設定可能
+        > + 1.7 の部分を、任意の周期に設定可能
 
         このファイルに記述した単語が、記述した周期 [s] で publish & subscribe される。
 
@@ -110,10 +109,8 @@
     [name_pubsub_exe-1] [INFO] [1683289130.075787600] [myname_pubsub]: Subscibed : 'hoge, count = 0'
     ```
 
-    > count が 0 ~ 8 の場合、指定した単語が出力される。
-
-    > count が 9 の場合、Mr.Ikebe という名前が出力される。
-    ちょっとした遊び心ですね。
+    > + count が 0 ~ 8 の場合、指定した単語が出力される。
+    > + count が 9 の場合、Mr.Ikebe という名前が出力される。ちょっとした遊び心ですね。
 
     パラメータの変更は何度でも行えます。
     以上がこのパッケージの使用法になります。
