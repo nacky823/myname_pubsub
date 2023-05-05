@@ -121,7 +121,7 @@
 
 ### 課題４ yaml ファイルからパラメータを受け取り、launch.py を起動
 
-+ ( 任意 ) config ディレクトリの params_myname.param.yaml の pub_rate を任意の秒数に書き換える
++ ( 任意 ) config ディレクトリの params_myname.param.yaml のパラメータを任意の値に変更
 
     ```
     /myname_pubsub:
