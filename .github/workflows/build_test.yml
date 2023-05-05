@@ -1,0 +1,25 @@
+name: build
+on: push
+
+jobs:
+  colcon-build:
+    runs-on: ubuntu-latest
+    container: osrf/ros:humble-desktop
+    strategy:
+      matrix:
+        rosdistro:
+          - humble
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build test
+        run: |
+          sudo apt update -y
+          mkdir -p ../ros2_ws/src
+          cp -r ./* ../ros2_ws/src
+          cd ../ros2_ws
+          rosdep update
+          rosdep install -r -y --from-paths --ignore-src ./
+          source /opt/ros/humble/setup.bash
+          colcon  build --symlink-install
