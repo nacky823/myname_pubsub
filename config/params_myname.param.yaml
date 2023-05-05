@@ -1,0 +1,4 @@
+/myname_pubsub:
+  ros__parameters:
+    pub_name: 'myname_pubsub'
+    pub_rate: 1.7

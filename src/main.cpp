@@ -19,12 +19,17 @@ Myname::Myname(const rclcpp::NodeOptions & options)
     std::chrono::duration<double, std::milli> initial_value(2.0);
     this->declare_parameter("pub_rate", initial_value.count());
 
+    /* get parameter */
+    auto second = this->get_parameter("pub_rate").as_double();
+    std::chrono::milliseconds mil_second(static_cast<int>(second * 1000));
+    ms_ = mil_second;
+
     publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
     timer_ = this->create_wall_timer(
-        2000ms, std::bind(&Myname::timer_callback, this)
+        ms_, std::bind(&Myname::timer_callback, this)
     );
 
-    RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", initial_value.count());
+    RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", second);
 
     subscription_ = this->create_subscription<std_msgs::msg::String>(
         "name_topic", 10, std::bind(&Myname::topic_callback, this, _1)
