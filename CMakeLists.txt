@@ -10,6 +10,7 @@ endif()
 # find_package(rclcpp REQUIRED)
 # find_package(std_msgs REQUIRED)
 
+# Can be omitted "find dependencies" in ament_auto
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
