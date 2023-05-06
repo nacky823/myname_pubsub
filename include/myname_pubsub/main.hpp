@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-#ifndef MAIN_HPP_
-#define MAIN_HPP_
+#ifndef MYNAME_PUBSUB__MAIN_HPP_
+#define MYNAME_PUBSUB__MAIN_HPP_
 
+#include <string>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
@@ -41,4 +42,4 @@ private:
 
 }  // namespace myname_pubsub
 
-#endif  // MAIN_HPP_
+#endif  // MYNAME_PUBSUB__MAIN_HPP_

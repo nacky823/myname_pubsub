@@ -14,11 +14,9 @@
  */
 
 #include "myname_pubsub/main.hpp"
-
 #include <chrono>
 #include <functional>
 #include <memory>
-#include <string>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -92,7 +90,7 @@ void myname_pubsub::Myname::timer_callback()
   }
   pre_mil_second = mil_second;
 
-  //RCLCPP_INFO(this->get_logger(), "Now period is %lf[s].", second);
+  // RCLCPP_INFO(this->get_logger(), "Now period is %lf[s].", second);
 
   /* set parameter */
   rclcpp::Parameter sec_param("pub_rate", second);
