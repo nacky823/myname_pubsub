@@ -28,7 +28,7 @@ def generate_launch_description():
 
     name = Node(
         package="myname_pubsub",
-        executable="name_pubsub_exe",
+        executable="name_pubsub",
         name="myname_pubsub",
         output="screen",
         emulate_tty=True,

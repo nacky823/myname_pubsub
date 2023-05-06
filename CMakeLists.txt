@@ -32,7 +32,7 @@ endif()
 include_directories(include)
 
 # Create executable
-ament_auto_add_executable(name_pubsub_exe src/main.cpp)
+ament_auto_add_executable(name_pubsub src/main.cpp)
 
 # Install directories (Cannot be omitted in ament_auto)
 install(DIRECTORY
