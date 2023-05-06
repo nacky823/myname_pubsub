@@ -14,9 +14,9 @@
  */
 
 #include "myname_pubsub/main.hpp"
-#include <memory>
 #include <chrono>
 #include <functional>
+#include <memory>
 #include <string>
 
 using std::placeholders::_1;
