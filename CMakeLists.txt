@@ -6,16 +6,16 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(rclcpp_components REQUIRED)
-find_package(std_msgs REQUIRED)
+# find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_auto REQUIRED)
+ament_auto_find_build_dependencies()
+
+# find_package(rclcpp REQUIRED)
+# find_package(std_msgs REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-
-include_directories(include)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -29,26 +29,31 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# Create executable
-add_executable(name_pubsub_exe src/main.cpp)
-ament_target_dependencies(name_pubsub_exe rclcpp std_msgs)
+include_directories(include)
 
-# install main
-install(TARGETS
-  name_pubsub_exe
-  DESTINATION lib/${PROJECT_NAME}
-)
+# Create executable
+# ament_auto_add_executable(name_pubsub_exe src/main.cpp)
+ament_auto_add_executable(name_pubsub src/main.cpp)
+# add_executable(name_pubsub_exe src/main.cpp)
+# ament_target_dependencies(name_pubsub_exe rclcpp std_msgs)
+
+# install executable
+# install(TARGETS
+#   name_pubsub_exe
+#   DESTINATION lib/${PROJECT_NAME}
+# )
 
 # install launch
-install(
-  DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
+# install(
+#   DIRECTORY launch
+#   DESTINATION share/${PROJECT_NAME}
+# )
 
 # install config
-install(
-  DIRECTORY config
-  DESTINATION share/${PROJECT_NAME}
-)
+# install(
+#   DIRECTORY config
+#   DESTINATION share/${PROJECT_NAME}
+# )
 
-ament_package()
+ament_auto_package()
+# ament_package()
