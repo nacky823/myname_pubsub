@@ -17,7 +17,7 @@
 #include <chrono>
 #include <functional>
 #include <memory>
-#include <backward.hpp>
+// #include <backward.hpp>
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
@@ -112,7 +112,7 @@ int main(int argc, char * argv[])
 {
   setvbuf(stdout, NULL, _IONBF, BUFSIZ);
 
-  backward::SignalHandling sh;
+  // backward::SignalHandling sh;
   rclcpp::init(argc, argv);
 
   rclcpp::executors::SingleThreadedExecutor exec;
