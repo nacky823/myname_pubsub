@@ -32,28 +32,15 @@ endif()
 include_directories(include)
 
 # Create executable
-# ament_auto_add_executable(name_pubsub_exe src/main.cpp)
-ament_auto_add_executable(name_pubsub src/main.cpp)
-# add_executable(name_pubsub_exe src/main.cpp)
-# ament_target_dependencies(name_pubsub_exe rclcpp std_msgs)
+ament_auto_add_executable(name_pubsub_exe src/main.cpp)
 
-# install executable
-# install(TARGETS
-#   name_pubsub_exe
-#   DESTINATION lib/${PROJECT_NAME}
-# )
+# Install directories (Cannot be omitted in ament_auto)
+install(DIRECTORY
+  launch
+  config
+  DESTINATION share/${PROJECT_NAME}
+)
 
-# install launch
-# install(
-#   DIRECTORY launch
-#   DESTINATION share/${PROJECT_NAME}
-# )
-
-# install config
-# install(
-#   DIRECTORY config
-#   DESTINATION share/${PROJECT_NAME}
-# )
-
-ament_auto_package()
 # ament_package()
+# Install executables (Can be omitted in ament_auto)
+ament_auto_package()
