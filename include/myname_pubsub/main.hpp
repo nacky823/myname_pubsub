@@ -37,9 +37,8 @@ private:
 
   void timer_callback();
   void topic_callback(const std_msgs::msg::String & msg) const;
-
 };
 
-} // namespace myname_pubsub
+}  // namespace myname_pubsub
 
-#endif // MAIN_HPP_
+#endif  // MAIN_HPP_
