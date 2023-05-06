@@ -14,6 +14,7 @@
  */
 
 #include "myname_pubsub/main.hpp"
+
 #include <chrono>
 #include <functional>
 #include <memory>
@@ -26,9 +27,7 @@ namespace myname_pubsub
 {
 
 Myname::Myname(const rclcpp::NodeOptions & options)
-: Node("myname_pubsub", options)
-  , count_(0)
-  , ms_(0)
+: Node("myname_pubsub", options), count_(0), ms_(0)
 {
   /* declare parameter */
   this->declare_parameter("pub_name", "hajime");
@@ -44,16 +43,13 @@ Myname::Myname(const rclcpp::NodeOptions & options)
   ms_ = mil_second;
 
   publisher_ = this->create_publisher<std_msgs::msg::String>("name_topic", 10);
-  timer_ = this->create_wall_timer(
-    ms_, std::bind(&Myname::timer_callback, this)
-  );
+  timer_ = this->create_wall_timer(ms_, std::bind(&Myname::timer_callback, this));
 
   RCLCPP_INFO(this->get_logger(), "Initial name is %s.", name_.c_str());
   RCLCPP_INFO(this->get_logger(), "Initial period is %lf[s].", second);
 
   subscription_ = this->create_subscription<std_msgs::msg::String>(
-    "name_topic", 10, std::bind(&Myname::topic_callback, this, _1)
-  );
+    "name_topic", 10, std::bind(&Myname::topic_callback, this, _1));
 }
 
 void myname_pubsub::Myname::timer_callback()
@@ -111,7 +107,7 @@ void Myname::topic_callback(const std_msgs::msg::String & msg) const
   RCLCPP_INFO(this->get_logger(), "Subscibed : '%s'", msg.data.c_str());
 }
 
-} // namespace myname_pubsub
+}  // namespace myname_pubsub
 
 int main(int argc, char * argv[])
 {
