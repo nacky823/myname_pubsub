@@ -57,6 +57,14 @@
 
     > クローン終了後、ビルド＆ソースを行う。
 
+## Backward ROS を用いたデバッグ方法
+
+1. 以下のコマンドを実行
+    ```
+    ros2 launch myname_pubsub myname_pubsub_launch.py
+    ```
+    > エラーが発生した場合、ノードが何処で kill されたのかを教えてくれます。
+
 ## 使用方法
 
 1. ( 任意 ) config ディレクトリにある params_myname.param.yaml ファイルを編集
