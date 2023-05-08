@@ -33,7 +33,7 @@ endif()
 include_directories(include)
 
 # Create executable
-ament_auto_add_executable(name_pubsub src/main.cpp)
+ament_auto_add_executable(name_pubsub src/core.cpp src/node.cpp)
 
 # Add Backward ROS
 add_backward(name_pubsub)

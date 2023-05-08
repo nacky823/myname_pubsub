@@ -106,22 +106,3 @@ void Myname::topic_callback(const std_msgs::msg::String & msg) const
 }
 
 }  // namespace myname_pubsub
-
-int main(int argc, char * argv[])
-{
-  setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-
-  rclcpp::init(argc, argv);
-
-  rclcpp::executors::SingleThreadedExecutor exec;
-  rclcpp::NodeOptions options;
-
-  auto myname = std::make_shared<myname_pubsub::Myname>(options);
-  exec.add_node(myname);
-
-  exec.spin();
-
-  rclcpp::shutdown();
-
-  return 0;
-}
