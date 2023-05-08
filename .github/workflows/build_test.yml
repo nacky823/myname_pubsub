@@ -23,4 +23,4 @@ jobs:
           rosdep update
           rosdep install --from-path src --rosdistro humble -y
           source /opt/ros/humble/setup.bash
-          colcon  build --symlink-install
+          colcon build --symlink-install
