@@ -38,13 +38,8 @@ ament_auto_add_executable(name_pubsub src/core.cpp src/node.cpp)
 # Add Backward ROS
 add_backward(name_pubsub)
 
-# Install directories (Cannot be omitted in ament_auto)
-install(DIRECTORY
-  launch
+ament_auto_package(
+  INSTALL_TO_SHARE
   config
-  DESTINATION share/${PROJECT_NAME}
+  launch
 )
-
-# ament_package()
-# Install executables (Can be omitted in ament_auto)
-ament_auto_package()
