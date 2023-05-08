@@ -60,7 +60,7 @@
 
 ## Backward ROS を用いたデバッグ方法
 
-1. 以下のコマンドを実行
++ 以下のコマンドを実行
     ```
     ros2 launch myname_pubsub myname_pubsub_launch.py
     ```
