@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-#include "myname_pubsub/main.hpp"
+#include "myname_pubsub/core.hpp"
 #include <chrono>
 #include <functional>
 #include <memory>

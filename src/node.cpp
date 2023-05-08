@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-#include "myname_pubsub/main.hpp"
+#include "myname_pubsub/core.hpp"
 
 int main(int argc, char * argv[])
 {
