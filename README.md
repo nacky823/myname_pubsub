@@ -4,6 +4,11 @@
 
 任意の単語を、任意の周期で publish & subscribe を行う ROS 2 Humble のパッケージです。
 
+> **Warning**
+> + この branch は、Backward ROS の動作確認用 branch です。
+> + ビルドは通りますが、意図的なバグが埋め込まれています。
+> + 使用方法は下記の「Backward ROS を用いたデバッグ方法」をご覧ください。
+
 ## 動作確認済みの環境
 
 + OS : Ubuntu 22.04.1 LTS
