@@ -35,7 +35,7 @@
 │   └── params_myname.param.yaml
 ├── include
 │   └── myname_pubsub
-│       └── main.hpp
+│       └── core.hpp
 ├── launch
 │   └── myname_pubsub_launch.py
 ├── package.xml
