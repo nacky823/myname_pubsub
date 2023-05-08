@@ -64,7 +64,8 @@
     ```
     ros2 launch myname_pubsub myname_pubsub_launch.py
     ```
-    > エラーが発生した場合、ノードが何処で kill されたのかを教えてくれます。
+    > + エラーが発生した場合、ノードが何処で kill されたのかを教えてくれます。
+    > + この branch では、src/core.cpp の３６行目にバグを埋め込んでいます。
 
 ## 使用方法
 
