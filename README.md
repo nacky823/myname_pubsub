@@ -40,9 +40,10 @@
 │   └── myname_pubsub_launch.py
 ├── package.xml
 └── src
-    └── main.cpp
+    ├── core.cpp
+    └── node.cpp
 
-5 directories, 8 files
+5 directories, 9 files
 ```
 
 ## インストール
