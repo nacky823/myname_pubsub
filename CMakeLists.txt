@@ -36,7 +36,7 @@ include_directories(include)
 ament_auto_add_executable(name_pubsub src/main.cpp)
 
 # Add Backward ROS
-add_backward(name_pubsub)
+# add_backward(name_pubsub)
 
 # Install directories (Cannot be omitted in ament_auto)
 install(DIRECTORY
