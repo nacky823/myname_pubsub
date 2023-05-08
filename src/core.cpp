@@ -33,7 +33,7 @@ Myname::Myname(const rclcpp::NodeOptions & options)
   this->declare_parameter("pub_rate", initial_value.count());
 
   /* get parameter pub_name */
-  name_ = this->get_parameter("pub_name_hoge").as_string(); // add bag
+  name_ = this->get_parameter("pub_name").as_string();
 
   /* get parameter pub_rate */
   auto second = this->get_parameter("pub_rate").as_double();

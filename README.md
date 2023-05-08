@@ -58,15 +58,6 @@
 
     > クローン終了後、ビルド＆ソースを行う。
 
-## Backward ROS を用いたデバッグ方法
-
-+ 以下のコマンドを実行
-    ```
-    ros2 launch myname_pubsub myname_pubsub_launch.py
-    ```
-    > + エラーが発生した場合、ノードが何処で kill されたのかを教えてくれます。
-    > + この branch では、src/core.cpp の３６行目にバグを埋め込んでいます。
-
 ## 使用方法
 
 1. ( 任意 ) config ディレクトリにある params_myname.param.yaml ファイルを編集
@@ -161,10 +152,19 @@
     パラメータの変更は何度でも行えます。
     以上がこのパッケージの使用法になります。
 
+## Backward ROS を用いたデバッグ方法
+
++ 以下のコマンドを実行
+    ```
+    ros2 launch myname_pubsub myname_pubsub_launch.py
+    ```
+    > + エラーが発生した場合、ノードが何処で kill されたのかを教えてくれます。
+
 ## 参考文献
 
 + https://docs.ros.org/en/humble/index.html
 + https://github.com/uhobeike/ros2_cpp_template
++ https://zenn.dev/ame_b/articles/043dea8ecc9d8e
 
 ## ライセンス
 
